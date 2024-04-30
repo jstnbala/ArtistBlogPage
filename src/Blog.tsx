@@ -16,8 +16,6 @@ import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
 
-import axios from 'axios'; // Import Axios
-
 const sections = [
   { title: 'Technology', url: '#' },
   { title: 'Design', url: '#' },
@@ -32,7 +30,7 @@ const sections = [
 ];
 
 const mainFeaturedPost = {
-  title: 'Ed Sheeran',
+  title: 'Title of a longer featured blog post',
   description:
     "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
   image: 'https://source.unsplash.com/random?wallpapers',
@@ -59,19 +57,36 @@ const featuredPosts = [
   },
 ];
 
+const posts = [post1, post2, post3];
+
+const sidebar = {
+  title: 'About',
+  description:
+    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+  archives: [
+    { title: 'March 2020', url: '#' },
+    { title: 'February 2020', url: '#' },
+    { title: 'January 2020', url: '#' },
+    { title: 'November 1999', url: '#' },
+    { title: 'October 1999', url: '#' },
+    { title: 'September 1999', url: '#' },
+    { title: 'August 1999', url: '#' },
+    { title: 'July 1999', url: '#' },
+    { title: 'June 1999', url: '#' },
+    { title: 'May 1999', url: '#' },
+    { title: 'April 1999', url: '#' },
+  ],
+  social: [
+    { name: 'GitHub', icon: GitHubIcon },
+    { name: 'X', icon: XIcon },
+    { name: 'Facebook', icon: FacebookIcon },
+  ],
+};
+
+// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Blog() {
-  const [poststate1, setPoststate1] = React.useState();
-  const [poststate2, setPoststate2] = React.useState();
-  const [poststate3, setPoststate3] = React.useState();
-
-  React.useEffect(() => {
-    axios.get(post1).then(res => setPoststate1(res.data));
-    axios.get(post2).then(res => setPoststate2(res.data));
-    axios.get(post3).then(res => setPoststate3(res.data));
-  }, []);  
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -85,30 +100,12 @@ export default function Blog() {
             ))}
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
-            {(poststate1 && poststate2 && poststate3) && (
-              <Main title="From the firehose" posts={[poststate1, poststate2, poststate3]} />
-            )}
+            <Main title="From the firehose" posts={posts} />
             <Sidebar
-              title="About"
-              description="Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur."
-              archives={[
-                { title: 'March 2020', url: '#' },
-                { title: 'February 2020', url: '#' },
-                { title: 'January 2020', url: '#' },
-                { title: 'November 1999', url: '#' },
-                { title: 'October 1999', url: '#' },
-                { title: 'September 1999', url: '#' },
-                { title: 'August 1999', url: '#' },
-                { title: 'July 1999', url: '#' },
-                { title: 'June 1999', url: '#' },
-                { title: 'May 1999', url: '#' },
-                { title: 'April 1999', url: '#' },
-              ]}
-              social={[
-                { name: 'GitHub', icon: GitHubIcon },
-                { name: 'X', icon: XIcon },
-                { name: 'Facebook', icon: FacebookIcon },
-              ]}
+              title={sidebar.title}
+              description={sidebar.description}
+              archives={sidebar.archives}
+              social={sidebar.social}
             />
           </Grid>
         </main>
