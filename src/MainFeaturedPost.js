@@ -43,13 +43,13 @@ function MainFeaturedPost(props) {
               pr: { md: 0 },
             }}
           >
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+            <Typography component="h1" variant="h3" color="inherit" gutterBottom fontFamily="'Shrikhand', serif">
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
+            <Typography variant="h5" color="inherit" paragraph fontFamily="'Poppins', sans-serif">
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
+            <Link variant="subtitle1" href="#" color="inherit" fontFamily="'Poppins', sans-serif">
               {post.linkText}
             </Link>
           </Box>

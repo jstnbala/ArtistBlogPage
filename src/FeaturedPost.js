@@ -13,18 +13,18 @@ function FeaturedPost(props) {
   return (
     <Grid item xs={12} md={6}>
       <CardActionArea component="a" href="#">
-        <Card sx={{ display: 'flex' }}>
+        <Card sx={{ display: 'flex', backgroundColor: '#36454F', color: 'white' }}>
           <CardContent sx={{ flex: 1 }}>
-            <Typography component="h2" variant="h5">
+            <Typography component="h2" variant="h5" fontFamily="Poppins" fontWeight="bold">
               {post.title}
             </Typography>
-            <Typography variant="subtitle1" color="text.secondary">
+            <Typography variant="subtitle1" color="white" fontFamily="Poppins">
               {post.date}
             </Typography>
-            <Typography variant="subtitle1" paragraph>
+            <Typography variant="subtitle1" paragraph fontFamily="Poppins">
               {post.description}
             </Typography>
-            <Typography variant="subtitle1" color="primary">
+            <Typography variant="subtitle1" color="white" fontFamily="Poppins">
               Continue reading...
             </Typography>
           </CardContent>

@@ -1,41 +1,42 @@
+// Footer.js
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Grid from '@mui/material/Grid';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 function Footer(props) {
   const { description, title } = props;
 
   return (
-    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
+    <Box component="footer" sx={{ bgcolor: '#36454F', py: 6, color: '#fff' , width:'1200px', marginLeft:'345px', marginTop: '20px'}}>
       <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom>
+        <Typography variant="h4" align="center" fontFamily={'Shrikhand, serif'} gutterBottom>
           {title}
         </Typography>
         <Typography
           variant="subtitle1"
           align="center"
-          color="text.secondary"
+          color="white"
           component="p"
+          fontFamily="Poppins"
         >
           {description}
         </Typography>
-        <Copyright />
+        <Grid container justifyContent="center" spacing={2}>
+          <Grid item>
+            <InstagramIcon style={{ color: '#fff' }} />
+          </Grid>
+          <Grid item>
+            <FacebookIcon style={{ color: '#fff' }} />
+          </Grid>
+        </Grid>
+        <Typography variant="body2" align="center" fontFamily="Poppins">
+          Copyright © 2024, Ed Sheeran. Designed © 2024, Justin Bala. All Rights Reserved
+        </Typography>
       </Container>
     </Box>
   );
