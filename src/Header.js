@@ -56,6 +56,20 @@ function Header(props) {
         variant="dense"
         sx={{ justifyContent: 'space-between', overflowX: 'auto', backgroundColor: 'white', color: 'black' }}
       >
+        <Link
+          color="inherit"
+          noWrap
+          variant="body2"
+          href="/"
+          sx={{
+            p: 1,
+            flexShrink: 0,
+            fontFamily: 'Poppins',
+          }}
+          onClick={() => setActiveSection(null)}
+          className="section-link">
+          Home
+        </Link>
         {sections.map((section) => (
           <Link
             color="inherit"

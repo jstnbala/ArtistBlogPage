@@ -1,5 +1,6 @@
 // App.js
 import * as React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Routes
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -17,13 +18,18 @@ import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
 import axios from 'axios'; // Import Axios
+import Album from './Album'; // Import Album component
+import Merchandise from './Merchandise'; // Import Merchandise component
+import Fans from './Fans'; // Import Fans component
+import Biography from './Biography'; // Import Biography component
+import Quotes from './Quotes'; // Import Quotes component
 
 const sections = [
-  { title: 'Albums of Ed Sheeran', url: '#' },
-  { title: 'Merchandise of Ed Sheeran', url: '#' },
-  { title: 'Fans of Ed Sheeran', url: '#' },
-  { title: 'Biography of Ed Sheeran', url: '#' },
-  { title: 'Inspiring Quotes of Ed Sheeran', url: '#' },
+  { title: 'Albums of Ed Sheeran', url: '/album' },
+  { title: 'Merchandise of Ed Sheeran', url: '/merchandise' },
+  { title: 'Fans of Ed Sheeran', url: '/fans' },
+  { title: 'Biography of Ed Sheeran', url: '/biography' },
+  { title: 'Inspiring Quotes of Ed Sheeran', url: '/quotes' },
 ];
 
 const mainFeaturedPost = {
@@ -71,48 +77,64 @@ export default function Blog() {
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Beyond the Stage: Ed Sheeran Unplugged" sections={sections} />
-        <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-          </Grid>
-          <Grid container spacing={5} sx={{ mt: 3,}}>
-            {(poststate1 && poststate2 && poststate3) && (
-              <Main title='The Melodic Chronicles of Ed Sheeran' posts={[poststate1, poststate2, poststate3]} />
-            )}
-            <Sidebar
-              title="The Man Behind the Music"
-              description="Ed Sheeran, a musician who connects people through his heartfelt songs, shares his soulful melodies, spreading joy and unity worldwide."
-              archives={[
-                  { title: 'Shape of You - March 2017', url: '#' },
-                  { title: 'Thinking Out Loud - February 2014', url: '#' },
-                  { title: 'Perfect - January 2017', url: '#' },
-                  { title: 'Castle on the Hill - November 2016', url: '#' },
-                  { title: 'Photograph - October 2014', url: '#' },
-                  { title: 'The A Team - September 2011', url: '#' },
-                  { title: 'Galway Girl - August 2017', url: '#' },
-                  { title: 'I See Fire - July 2013', url: '#' },
-                  { title: 'Sing - June 2014', url: '#' },
-                  { title: 'Lego House - May 2011', url: '#' },
-                  { title: "Don't - April 2014", url: '#' }
-              ]}
-              social={[
-                { name: 'Instagram', icon: InstagramIcon, },
-                { name: 'Twitter', icon: XIcon },
-                { name: 'Facebook', icon: FacebookIcon },
-              ]}
-            />
-          </Grid> 
-        </main>
+        <Router>
+          <Header title="Beyond the Stage: Ed Sheeran Unplugged" sections={sections} />
+          <main>
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={
+                  <>
+                    <MainFeaturedPost post={mainFeaturedPost} />
+                    <Grid container spacing={4}>
+                      {featuredPosts.map((post) => (
+                        <FeaturedPost key={post.title} post={post} />
+                      ))}
+                    </Grid>
+                    <Grid container spacing={5} sx={{ mt: 3 }}>
+                      {(poststate1 && poststate2 && poststate3) && (
+                        <Main title='The Melodic Chronicles of Ed Sheeran' posts={[poststate1, poststate2, poststate3]} />
+                      )}
+                      <Sidebar
+                        title="The Man Behind the Music"
+                        description="Ed Sheeran, a musician who connects people through his heartfelt songs, shares his soulful melodies, spreading joy and unity worldwide."
+                        archives={[
+                          { title: 'Shape of You - March 2017', url: '#' },
+                          { title: 'Thinking Out Loud - February 2014', url: '#' },
+                          { title: 'Perfect - January 2017', url: '#' },
+                          { title: 'Castle on the Hill - November 2016', url: '#' },
+                          { title: 'Photograph - October 2014', url: '#' },
+                          { title: 'The A Team - September 2011', url: '#' },
+                          { title: 'Galway Girl - August 2017', url: '#' },
+                          { title: 'I See Fire - July 2013', url: '#' },
+                          { title: 'Sing - June 2014', url: '#' },
+                          { title: 'Lego House - May 2011', url: '#' },
+                          { title: "Don't - April 2014", url: '#' }
+                        ]}
+                        social={[
+                          { name: 'Instagram', icon: InstagramIcon },
+                          { name: 'Twitter', icon: XIcon },
+                          { name: 'Facebook', icon: FacebookIcon },
+                        ]}
+                      />
+                    </Grid>
+                  </>
+                }
+              />
+              <Route path="/album" element={<Album />} />
+              <Route path="/merchandise" element={<Merchandise />} />
+              <Route path="/fans" element={<Fans />} />
+              <Route path="/biography" element={<Biography />} />
+              <Route path="/quotes" element={<Quotes />} />
+            </Routes>
+          </main>
+        </Router>
+        <Footer
+          title="Ed Sheeran"
+          description="Crafting melodies, weaving stories, and painting emotions with every chord. Here's to the journey of music & beauty of connecting souls."
+        />
       </Container>
-      <Footer
-        title="Ed Sheeran"
-        description="Crafting melodies, weaving stories, and painting emotions with every chord. Here's to the journey of music & beauty of connecting souls."
-      />
     </ThemeProvider>
   );
 }
- 
