@@ -16,15 +16,27 @@ const options = {
         gutterBottom: true,
         variant: 'h4',
         component: 'h1',
+        fontFamily: 'Platypi, serif',
+        fontWeight: 'bold',
       },
     },
     h2: {
       component: Typography,
-      props: { gutterBottom: true, variant: 'h6', component: 'h2' },
+      props: {
+        gutterBottom: true,
+        variant: 'h6',
+        component: 'h2',
+        fontFamily: 'Poppins, sans-serif',
+        fontWeight: 'bold',
+      },
     },
     h3: {
       component: Typography,
-      props: { gutterBottom: true, variant: 'subtitle1' },
+      props: {
+        gutterBottom: true,
+        variant: 'subtitle1',
+        fontFamily: 'Poppins, sans-serif',
+      },
     },
     h4: {
       component: Typography,
@@ -32,13 +44,22 @@ const options = {
         gutterBottom: true,
         variant: 'caption',
         paragraph: true,
+        fontFamily: 'Poppins, sans-serif',
       },
     },
     p: {
       component: Typography,
-      props: { paragraph: true },
+      props: {
+        paragraph: true,
+        fontFamily: 'Poppins, sans-serif',
+      },
     },
-    a: { component: Link },
+    a: {
+      component: Link,
+      props: {
+        style: { color: 'white', textDecorationColor: 'white' }, // Set the color to black
+      },
+    },
     li: {
       component: MarkdownListItem,
     },
@@ -46,5 +67,17 @@ const options = {
 };
 
 export default function Markdown(props) {
-  return <ReactMarkdown options={options} {...props} />;
+  return (
+    <Box
+      sx={{
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/edbg.jpg)', // Replace with the correct path to your image
+        backgroundSize: 'auto',
+        color: 'white',
+        padding: '20px', // Adjust as needed
+      }}
+    >
+      <ReactMarkdown options={options} {...props} />
+    </Box>
+  );
 }
+

@@ -11,22 +11,23 @@ function Sidebar(props) {
 
   return (
     <Grid item xs={12} md={4}>
-      <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
-        <Typography variant="h6" gutterBottom>
+      <Paper elevation={0} sx={{ p: 2, bgcolor: '#36454F' }}>
+        <Typography variant="h5" gutterBottom sx={{ color: 'white', fontWeight: 'bold', fontFamily: 'Poppins'}}>
           {title}
         </Typography>
-        <Typography>{description}</Typography>
+        <Typography gutterBottom sx={{ fontSize: '18px', color: 'white', fontFamily: 'Poppins'}}>{description}</Typography>
       </Paper>
-      <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-        Archives
+      <Typography variant="h5" gutterBottom sx={{ mt: 3, textAlign: 'center', fontWeight: 'bold', fontFamily: 'Poppins' }}>
+        Some of His Iconic Tunes
       </Typography>
       {archives.map((archive) => (
-        <Link display="block" variant="body1" href={archive.url} key={archive.title}>
+        <Link display="block" variant="body1" href={archive.url} key={archive.title} 
+        sx={{ padding: '1px', color: 'black', fontFamily: 'Poppins', textDecoration: 'white'}}>
           {archive.title}
         </Link>
       ))}
-      <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-        Social
+      <Typography variant="h5" gutterBottom sx={{ mt: 3, fontFamily: 'Shrikhand' }}>
+        Ed Sheeran's Social Media
       </Typography>
       {social.map((network) => (
         <Link
@@ -34,10 +35,10 @@ function Sidebar(props) {
           variant="body1"
           href="#"
           key={network.name}
-          sx={{ mb: 0.5 }}
+          sx={{ mb: 0.5, fontSize: '1.2rem', color: 'black', fontFamily: 'Poppins', textDecorationColor: 'white' }}
         >
           <Stack direction="row" spacing={1} alignItems="center">
-            <network.icon />
+            <network.icon sx={{ fontSize: '2.5rem' }} /> 
             <span>{network.name}</span>
           </Stack>
         </Link>

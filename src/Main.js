@@ -19,7 +19,7 @@ function Main(props) {
         },
       }}
     >
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{ fontFamily: 'Shrikhand, serif' }}>
         {title}
       </Typography>
       <Divider />

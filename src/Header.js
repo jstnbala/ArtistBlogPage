@@ -9,41 +9,72 @@ import Link from '@mui/material/Link';
 
 function Header(props) {
   const { sections, title } = props;
+  const [activeSection, setActiveSection] = React.useState(null);
+
+  const handleSectionClick = (title) => {
+    setActiveSection(title);
+  };
 
   return (
     <React.Fragment>
-      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Button size="small">Subscribe</Button>
+      <Toolbar
+        sx={{
+          borderBottom: 3,
+          borderColor: 'divider',
+          backgroundColor: '#36454F', // Background color
+          color: 'white', // Text color
+        }}
+      >
+        <Button variant="outlined" style={{ color: 'white', borderColor: 'white' }}>Subscribe</Button>
         <Typography
           component="h2"
           variant="h5"
           color="inherit"
           align="center"
           noWrap
-          sx={{ flex: 1 }}
+          sx={{
+            flex: 1,
+            fontWeight: 'bold',
+            color: 'white',
+            fontStyle: 'italic',
+            fontSize: '27px',
+            fontFamily: title === "Beyond the Stage: Ed Sheeran Unplugged" ? 'Platypi, serif' : 'inherit',
+          
+          }}
         >
           {title}
         </Typography>
-        <IconButton>
+        <IconButton style={{ color: 'white' }}>
           <SearchIcon />
         </IconButton>
-        <Button variant="outlined" size="small">
+        <Button variant="outlined" size="medium" style={{ color: 'white', borderColor: 'white' }}>
           Sign up
         </Button>
       </Toolbar>
       <Toolbar
         component="nav"
         variant="dense"
-        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
+        sx={{ justifyContent: 'space-between', overflowX: 'auto', backgroundColor: 'white', color: 'black' }}
       >
         {sections.map((section) => (
           <Link
             color="inherit"
+            fontWeight={'bold'}
             noWrap
             key={section.title}
             variant="body2"
             href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
+            sx={{
+              p: 1,
+              flexShrink: 0,
+              fontFamily: 'Poppins',
+              fontWeight: section.title === activeSection ? 'bold' : 'normal',
+              '&:hover': {
+                textDecoration: 'underline',
+              },
+            }}
+            onClick={() => handleSectionClick(section.title)}
+            className="section-link"
           >
             {section.title}
           </Link>
