@@ -1,6 +1,6 @@
 // App.js
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Routes
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -17,19 +17,19 @@ import Footer from './Footer';
 import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
-import axios from 'axios'; // Import Axios
-import Album from './Album'; // Import Album component
-import Merchandise from './Merchandise'; // Import Merchandise component
-import Fans from './Fans'; // Import Fans component
-import Biography from './Biography'; // Import Biography component
-import Quotes from './Quotes'; // Import Quotes component
+import axios from 'axios'; 
+import Album from './Album'; 
+import Merchandise from './Merchandise'; 
+import Fans from './Fans'; 
+import Biography from './Biography'; 
+import Quotes from './Quotes';
 
 const sections = [
   { title: 'Albums of Ed Sheeran', url: '/album' },
   { title: 'Merchandise of Ed Sheeran', url: '/merchandise' },
   { title: 'Fans of Ed Sheeran', url: '/fans' },
   { title: 'Biography of Ed Sheeran', url: '/biography' },
-  { title: 'Inspiring Quotes of Ed Sheeran', url: '/quotes' },
+  { title: 'Quotes', url: '/quotes' },
 ];
 
 const mainFeaturedPost = {

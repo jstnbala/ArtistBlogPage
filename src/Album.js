@@ -32,7 +32,7 @@ const Album = () => {
 
   return (
     <div className="album-container" style={{ backgroundColor: '#36454F' }}>
-      <h1 className="title">The Mathematical Era</h1>
+      <h1 className="title"> M a t h e m a t i c a l  -   E r a </h1>
       <div className="albums">
         {albums.map((album, index) => (
           <div key={index} className="album-card">
