@@ -35,7 +35,7 @@ function Footer(props) {
           </Grid>
         </Grid>
         <Typography variant="body2" align="center" fontFamily="Poppins">
-          Copyright © 2024, Ed Sheeran. Designed © 2024, Justin Bala. All Rights Reserved
+          Copyright © 2024, Ed Sheeran. Designed © 2024, BALA-VIENA. All Rights Reserved
         </Typography>
       </Container>
     </Box>
